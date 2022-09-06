@@ -1,10 +1,12 @@
 <script lang="ts">
   import svelteLogo from './assets/svelte.svg'
   import Counter from './lib/Counter.svelte'
+  import Signup from './lib/forms/signup.svelte'
 </script>
 
 <main>
-  <div>
+	<Signup></Signup>
+  <!-- <div>
     <a href="https://vitejs.dev" target="_blank"> 
       <img src="/vite.svg" class="logo" alt="Vite Logo" />
     </a>
@@ -24,7 +26,7 @@
 
   <p class="read-the-docs">
     Click on the Vite and Svelte logos to learn more
-  </p>
+  </p> -->
 </main>
 
 <style>

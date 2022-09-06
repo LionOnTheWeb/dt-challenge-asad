@@ -11,6 +11,9 @@
 - **Node** v18.7.0
 - **Yarn** v1.22.19
 
+# CHANGELOG
+- 1.0.1 Added Postcss and Postcss plugin postcss-nested
+
 ----
 
 # Project README
