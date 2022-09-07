@@ -1,5 +1,36 @@
 <script lang="ts">
 
+	let fetchUserLocationCountry = async () => {
+
+		const userLocationDataPromise = await fetch('http://ip-api.com/json')
+		const userLocationData = await userLocationDataPromise.json()
+
+		if (userLocationDataPromise.ok) return userLocationData
+		else throw new Error(userLocationData)
+	}
+
+	let fetchCountries = async () => {		
+		const countryDataPromise = await fetch('https://restcountries.com/v3.1/all')
+		const countryData = await countryDataPromise.json()
+
+		if (countryDataPromise.ok) {
+
+			let countryList = [];
+			
+			countryData.forEach((item: { name: { common: any; } }) => {
+				countryList.push(item?.name?.common)
+			});
+
+			countryList.join()
+			countryList.sort()
+
+			return countryList
+		}
+		else throw new Error(countryData)
+	}
+
+	let countryData = fetchCountries();
+	let currentLocationData = fetchUserLocationCountry();
 </script>
 
 <style lang="postcss">
@@ -20,8 +51,27 @@
 
 <span>Let's get started</span>
 <form action="">	
-	<label for="countryOfResidence">Country of residence</label>
-	<input name="countryOfResidence" type="location">
+	<label for="countryResidence">Country of residence</label>
+	<select name="country" id="countryResidence">
+		{#await countryData}
+
+			<option value="">fetching list of countries...</option>
+
+		{:then countries}
+			{#await currentLocationData}
+
+				<option value="">fetching current location...</option>
+
+			{:then location}
+				<option value="" disabled>Select country...</option>
+				{#each countries as country}
+					<option value="{country}" selected={location.country==country}>{country}</option>
+				{/each}
+
+			{/await}
+		{/await}
+
+	</select>
 
 	<label for="email">Email</label>
 	<input type="email" name="email" id="email">
