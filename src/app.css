@@ -4,9 +4,9 @@
   line-height: 24px;
   font-weight: 400;
 
-  color-scheme: light dark;
+  /* color-scheme: light dark; */
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -30,13 +30,19 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: url('https://preview.pixlr.com/images/800wm/1143/1/1143153593.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  background-blend-mode: screen;
 }
 
 #app {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
 button {
@@ -46,7 +52,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: white;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -58,7 +64,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -69,4 +75,11 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
