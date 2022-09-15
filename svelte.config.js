@@ -1,12 +1,12 @@
 import sveltePreprocess from 'svelte-preprocess'
-import nested from 'postcss-nested'
+import * as path from 'path'
 
 export default {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   	preprocess: sveltePreprocess({
-		postcss: {
-			plugins: [nested()]
+		scss: {
+			includePaths: [ 'src/styles' ]
 		}
 	})
 }
