@@ -77,6 +77,7 @@
 
 	h3 {
 		text-align: center;
+		font-weight: 600;
 	}
 
 	form {
